@@ -1,0 +1,40 @@
+;STARTGCODE
+G90 ; use absolute coordinates
+M83 ; extruder relative mode
+M200 D0 ; disable volumetric E
+M220 S100 ; reset speed
+
+G28 ; home all axes
+G1 X150 Y115 Z30 F5000 ; SEGURANÇA: Move para o centro antes de qualquer descida
+
+; Rotina de bipes
+M300 S440 P200
+M300 S0 P250
+M300 S440 P200
+G4 S10 ; espera para limpeza manual se necessário
+M300 S440 P200
+
+; Movimento de inicialização (Purge)
+G1 X300.0 Y0.0 Z10 F1000.0 ; Vai para o canto de início
+G92 E0.0
+G1 E12.0 ; Purga um pouco de filamento
+G92 E0.0
+M221 S{if layer_height<0.075}100{else}95{endif}
+M300 S40 P10 ; chirp
+
+; ---------------------
+
+;ENDGCODE
+G92 E0.0
+G1 E-10 F3000 ; Retração para evitar fios
+G91 ; Modo relativo
+G1 Z10 F3000 ; Sobe o bico 10mm para não bater na peça
+G90 ; Modo absoluto
+G1 X0 Y230 F5000 ; Afasta o bico da peça (Ajuste X e Y conforme sua preferência)
+
+M104 S0 ; desliga bico
+M140 S0 ; desliga mesa
+M107 ; desliga fan
+M84 ; desliga motores
+M300 P200 ; Bip final
+M117 Print finish.

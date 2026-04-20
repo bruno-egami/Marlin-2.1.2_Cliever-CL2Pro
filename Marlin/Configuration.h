@@ -1316,7 +1316,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[,
  * E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT {53.30, 53.30, 581.54, 128.10}
+#define DEFAULT_AXIS_STEPS_PER_UNIT {53.30, 53.30, 581.54, 12.70}
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1324,7 +1324,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[,
  * E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE {80, 80, 25, 25}
+#define DEFAULT_MAX_FEEDRATE {80.00, 80.00, 15.00, 252.17}
 
 #define LIMITED_MAX_FR_EDITING // Limit edit via M203 or LCD to
                                // DEFAULT_MAX_FEEDRATE * 2
@@ -1662,7 +1662,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {0, 0, -25.0}
+#define NOZZLE_TO_PROBE_OFFSET {0, 0, -20.0}
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1896,7 +1896,7 @@
 #define Z_MIN_POS -60
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 215
+#define Z_MAX_POS 237
 // #define I_MIN_POS 0
 // #define I_MAX_POS 50
 // #define J_MIN_POS 0
@@ -3454,11 +3454,11 @@
 
 #define TOUCH_SCREEN_CALIBRATION
 
-// #define TOUCH_CALIBRATION_X 12316
-// #define TOUCH_CALIBRATION_Y -8981
-// #define TOUCH_OFFSET_X        -43
-// #define TOUCH_OFFSET_Y        257
-// #define TOUCH_ORIENTATION TOUCH_LANDSCAPE
+#define TOUCH_CALIBRATION_X 17130
+#define TOUCH_CALIBRATION_Y -11722
+#define TOUCH_OFFSET_X        -16
+#define TOUCH_OFFSET_Y        342
+#define TOUCH_ORIENTATION TOUCH_LANDSCAPE
 
 #if BOTH(TOUCH_SCREEN_CALIBRATION, EEPROM_SETTINGS)
 #define TOUCH_CALIBRATION_AUTO_SAVE // Auto save successful calibration values

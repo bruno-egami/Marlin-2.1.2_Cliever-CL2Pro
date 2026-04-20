@@ -1534,7 +1534,7 @@
  * Use a height slightly above the estimated nozzle-to-probe Z offset.
  * For example, with an offset of -5, consider a starting height of -4.
  */
-#define PROBE_OFFSET_WIZARD_START_Z -45.0
+#define PROBE_OFFSET_WIZARD_START_Z -20.0
 
 // Set a convenient position to do the calibration (probing point and
 // nozzle/bed-distance)

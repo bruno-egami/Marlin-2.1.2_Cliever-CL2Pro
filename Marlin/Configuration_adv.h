@@ -2351,9 +2351,9 @@
 #if ENABLED(LIN_ADVANCE)
 #if ENABLED(DISTINCT_E_FACTORS)
 #define ADVANCE_K                                                              \
-  {0.22} // (mm) Compression length per 1mm/s extruder speed, per extruder
+  {0.30} // (mm) Compression length per 1mm/s extruder speed, per extruder
 #else
-#define ADVANCE_K 0.22 // (mm) Compression length applying to all extruders
+#define ADVANCE_K 0.30 // (mm) Compression length applying to all extruders
 #endif
 // #define ADVANCE_K_EXTRA       // Add a second linear advance constant,
 // configurable with M900 L. #define LA_DEBUG              // Print debug
@@ -2643,7 +2643,7 @@
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
 #define BLOCK_BUFFER_SIZE 8
 #elif ENABLED(SDSUPPORT)
-#define BLOCK_BUFFER_SIZE 16
+#define BLOCK_BUFFER_SIZE 32
 #else
 #define BLOCK_BUFFER_SIZE 16
 #endif
@@ -2652,7 +2652,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#define BUFSIZE 4
+#define BUFSIZE 8
 
 // Transmission to Host Buffer Size
 // To save 386 bytes of flash (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0.
@@ -3071,7 +3071,7 @@
 #endif
 
 #if AXIS_IS_TMC_CONFIG(Z)
-#define Z_CURRENT 800
+#define Z_CURRENT 1100
 #define Z_CURRENT_HOME Z_CURRENT
 #define Z_MICROSTEPS 16
 #define Z_RSENSE 0.11
@@ -3171,7 +3171,7 @@
 #endif
 
 #if AXIS_IS_TMC_CONFIG(E0)
-#define E0_CURRENT 800
+#define E0_CURRENT 700
 #define E0_MICROSTEPS 16
 #define E0_RSENSE 0.11
 #define E0_CHAIN_POS -1

@@ -1316,7 +1316,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[,
  * E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT {53.30, 53.30, 581.54, 12.70}
+#define DEFAULT_AXIS_STEPS_PER_UNIT {53.30, 53.30, 637.00, 16.51}
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1324,7 +1324,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[,
  * E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE {80.00, 80.00, 15.00, 252.17}
+#define DEFAULT_MAX_FEEDRATE {80.00, 80.00, 5.00, 193.98}
 
 #define LIMITED_MAX_FR_EDITING // Limit edit via M203 or LCD to
                                // DEFAULT_MAX_FEEDRATE * 2
@@ -1338,7 +1338,7 @@
  * rotational=°/(s^2)) (Maximum start speed for accelerated moves) Override with
  * M201 X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION {800, 800, 100, 1000}
+#define DEFAULT_MAX_ACCELERATION {800, 800, 25, 1000}
 
 #define LIMITED_MAX_ACCEL_EDITING // Limit edit via M201 or LCD to
                                   // DEFAULT_MAX_ACCELERATION * 2
@@ -1402,7 +1402,7 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-#define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
+#define JUNCTION_DEVIATION_MM 0.15 // (mm) Distance from real junction edge
 #define JD_HANDLE_SMALL_SEGMENTS // Use curvature estimation instead of just the
                                  // junction angle for small segments (< 1mm)
                                  // with large junction angles (> 135°).
@@ -1662,7 +1662,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {0, 0, -20.0}
+#define NOZZLE_TO_PROBE_OFFSET {0, 0, -22.94}
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1673,7 +1673,7 @@
 
 // Feedrate (mm/min) for the first approach when double-probing
 // (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (15 * 60)
+#define Z_PROBE_FEEDRATE_FAST (10 * 60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 3)
@@ -1742,7 +1742,7 @@
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
 #define Z_CLEARANCE_DEPLOY_PROBE 50   // Z Clearance for Deploy/Stow
-#define Z_CLEARANCE_BETWEEN_PROBES 50 // Z Clearance between probe points
+#define Z_CLEARANCE_BETWEEN_PROBES 10 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE 5     // Z Clearance between multiple probes
 #define Z_AFTER_PROBING 40            // Z position after probing is done
 
@@ -1896,7 +1896,7 @@
 #define Z_MIN_POS -60
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 215
+#define Z_MAX_POS 450
 // #define I_MIN_POS 0
 // #define I_MAX_POS 50
 // #define J_MIN_POS 0
@@ -2125,7 +2125,7 @@
  */
 #define ENABLE_LEVELING_FADE_HEIGHT
 #if ENABLED(ENABLE_LEVELING_FADE_HEIGHT)
-#define DEFAULT_LEVELING_FADE_HEIGHT 10.0 // (mm) Default fade height.
+#define DEFAULT_LEVELING_FADE_HEIGHT 0.0 // (mm) Default fade height.
 #endif
 
 /**
